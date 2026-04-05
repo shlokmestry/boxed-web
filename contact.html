@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Boxed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--bg:#080808;--card:#111111;--card-2:#1a1a1a;--text:#f0f0f0;--text-muted:rgba(240,240,240,0.55);--text-faint:rgba(240,240,240,0.25);--font:-apple-system,"SF Pro Display","Inter",system-ui,sans-serif;--radius-md:0.75rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-full:9999px;--content:760px;--tx:180ms cubic-bezier(0.16,1,0.3,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:1rem;line-height:1.6;min-height:100dvh;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(8,8,8,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.08);}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:0.5rem;}
+.nav-back{color:var(--text-faint);font-size:0.875rem;display:flex;align-items:center;gap:0.4rem;transition:color var(--tx);}
+.nav-back:hover{color:var(--text-muted);}
+.page-wrap{max-width:var(--content);margin:0 auto;padding:8rem 1.5rem 6rem;}
+.page-eyebrow{color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;}
+.page-title{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.75rem;}
+.page-sub{color:var(--text-muted);font-size:1rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.06);max-width:52ch;}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem;}
+.contact-card{background:var(--card);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius-xl);padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:border-color var(--tx),background var(--tx);}
+.contact-card:hover{border-color:rgba(201,168,76,0.2);background:#141414;}
+.contact-card-icon{font-size:2rem;}
+.contact-card-label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
+.contact-card-title{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
+.contact-card-value{color:var(--gold);font-size:0.9rem;word-break:break-all;}
+.contact-card-desc{color:var(--text-muted);font-size:0.85rem;line-height:1.6;}
+.contact-btn{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:0.6rem 1.2rem;border-radius:var(--radius-full);font-size:0.85rem;font-weight:500;transition:background var(--tx),color var(--tx);cursor:pointer;margin-top:auto;}
+.contact-btn:hover{background:var(--gold);color:#080808;}
+.response-note{background:var(--card);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;}
+.response-note p{color:var(--text-muted);font-size:0.9rem;line-height:1.7;}
+.response-note strong{color:var(--text);}
+footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;margin-top:4rem;}
+.footer-inner{max-width:var(--content);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{color:var(--text-faint);font-size:0.85rem;transition:color var(--tx);}
+.footer-links a:hover{color:var(--text-muted);}
+.footer-copy{color:var(--text-faint);font-size:0.8rem;}
+@media(max-width:600px){
+  .contact-cards{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>📦</span><span>Boxed</span></a>
+  <a class="nav-back" href="index.html">← Back to home</a>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-eyebrow">Get in touch</p>
+  <h1 class="page-title">Say hello 👋</h1>
+  <p class="page-sub">Have a question, a suggestion, or just want to say hi? We'd love to hear from you. Boxed is built by one person in Dublin — every message gets read.</p>
+
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-title">Drop us a message</div>
+      </div>
+      <div class="contact-card-value">getboxedapp@proton.me</div>
+      <p class="contact-card-desc">For general questions, feedback, privacy requests, or anything else.</p>
+      <a class="contact-btn" href="mailto:getboxedapp@proton.me">Send email →</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-icon">📸</div>
+      <div>
+        <div class="contact-card-label">Instagram</div>
+        <div class="contact-card-title">Follow the journey</div>
+      </div>
+      <div class="contact-card-value">@boxedapp</div>
+      <p class="contact-card-desc">Behind the scenes, updates, and the story of building Boxed from Dublin.</p>
+      <a class="contact-btn" href="https://instagram.com/boxedapp" target="_blank" rel="noopener noreferrer">Follow us →</a>
+    </div>
+  </div>
+
+  <div class="response-note">
+    <p>⏱ <strong>Response time:</strong> We typically reply within 24–48 hours. Since this is a solo project, responses may sometimes take a little longer — but we do read every message.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="nav-logo">📦 Boxed</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Boxed. Made with ❤️ in Dublin.</p>
+  </div>
+</footer>
+
+</body>
+</html>

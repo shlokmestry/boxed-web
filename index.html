@@ -16,12 +16,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:1r
 button{cursor:pointer;border:none;background:none;font:inherit;color:inherit;}
 a{color:inherit;text-decoration:none;}
 input{font:inherit;color:inherit;}
-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(8,8,8,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.08);}
-.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:0.5rem;}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:0.5rem;cursor:pointer;}
 .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.5rem 1.25rem;border-radius:var(--radius-full);font-size:0.875rem;font-weight:500;transition:background var(--tx),color var(--tx);cursor:pointer;}
 .nav-cta:hover{background:var(--gold);color:#080808;}
-
 .hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 5rem;overflow:hidden;}
 .hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:800px;height:600px;background:radial-gradient(ellipse at center,rgba(201,168,76,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
 #particles-canvas{position:absolute;inset:0;pointer-events:none;z-index:0;}
@@ -38,7 +36,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-primary:hover{background:#e8e8e8;transform:translateY(-1px);}
 .btn-secondary{background:transparent;color:var(--text-muted);padding:0.875rem 2rem;border-radius:var(--radius-full);border:1px solid rgba(240,240,240,0.2);font-weight:500;font-size:0.95rem;transition:border-color var(--tx),color var(--tx);cursor:pointer;}
 .btn-secondary:hover{border-color:rgba(240,240,240,0.5);color:var(--text);}
-
 .capsule-wrapper{position:relative;display:inline-flex;align-items:center;justify-content:center;width:180px;height:180px;margin:0 auto;}
 .capsule-box{width:180px;height:180px;background:var(--card);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:center;font-size:4rem;cursor:pointer;position:relative;z-index:2;border:1px solid rgba(201,168,76,0.15);animation:bob 3.5s ease-in-out infinite;transition:transform 0.15s;user-select:none;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
@@ -47,34 +44,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .ripple:nth-child(2){width:270px;height:270px;animation-delay:1s;}
 .ripple:nth-child(3){width:320px;height:320px;animation-delay:2s;}
 @keyframes ripple-expand{0%{opacity:0.6;transform:scale(0.85);}100%{opacity:0;transform:scale(1.2);}}
-
-/* ---- CHIP: one at a time via JS ---- */
 .memory-chips{position:absolute;inset:0;pointer-events:none;z-index:3;}
-.chip{
-  position:absolute;
-  background:rgba(17,17,17,0.95);
-  border:1px solid rgba(201,168,76,0.25);
-  padding:0.35rem 0.8rem;
-  border-radius:var(--radius-full);
-  font-size:0.72rem;font-weight:500;white-space:nowrap;color:var(--text-muted);
-  opacity:0;
-  transform:translateY(6px) scale(0.95);
-  transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);
-  pointer-events:none;
-}
+.chip{position:absolute;background:rgba(17,17,17,0.95);border:1px solid rgba(201,168,76,0.25);padding:0.35rem 0.8rem;border-radius:var(--radius-full);font-size:0.72rem;font-weight:500;white-space:nowrap;color:var(--text-muted);opacity:0;transform:translateY(6px) scale(0.95);transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}
 .chip.chip-visible{opacity:1;transform:translateY(0) scale(1);}
 .chip:nth-child(1){top:-10px;left:-110px;}
 .chip:nth-child(2){top:20px;right:-115px;}
 .chip:nth-child(3){bottom:20px;left:-100px;}
 .chip:nth-child(4){bottom:-10px;right:-105px;}
-
 .section{padding:clamp(4rem,8vw,6rem) 1.5rem;}
 .container{max-width:var(--content);margin:0 auto;}
 .section-label{color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;}
 .section-title{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:clamp(3rem,5vw,4rem);}
 .reveal{opacity:0;transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),clip-path 0.7s cubic-bezier(0.16,1,0.3,1);clip-path:inset(15% 0 0 0);}
 .reveal.visible{opacity:1;clip-path:inset(0 0 0 0);}
-
 .how-it-works{border-top:1px solid rgba(240,240,240,0.06);}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
 .steps-grid::before,.steps-grid::after{content:'';position:absolute;top:0;bottom:0;width:1px;background:rgba(240,240,240,0.08);}
@@ -87,7 +69,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .step-icon{font-size:2rem;margin-bottom:0.75rem;}
 .step-title{font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;}
 .step-desc{color:var(--text-muted);font-size:0.95rem;line-height:1.65;max-width:36ch;}
-
 .bento-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0.75rem;}
 .bento-card{background:var(--card);border-radius:var(--radius-lg);padding:1.5rem;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.05);transition:border-color var(--tx),background var(--tx);}
 .bento-card:hover{border-color:rgba(201,168,76,0.15);background:#141414;}
@@ -119,7 +100,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .made-in-dublin{background:#0a0c14 !important;border-color:rgba(201,168,76,0.2) !important;}
 .made-in-dublin .made-title{color:var(--gold);font-size:1.3rem;font-weight:800;margin-bottom:0.75rem;letter-spacing:-0.02em;}
 .made-in-dublin .made-story{color:rgba(201,168,76,0.65);font-size:0.9rem;line-height:1.7;}
-
 .waitlist-section{position:relative;text-align:center;padding:clamp(4rem,10vw,6rem) 1.5rem;overflow:hidden;border-top:1px solid rgba(201,168,76,0.08);}
 .waitlist-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(201,168,76,0.1) 0%,transparent 65%);pointer-events:none;}
 .waitlist-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;}
@@ -134,15 +114,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .waitlist-success{display:none;color:var(--green);font-size:0.9rem;font-weight:500;margin-top:0.5rem;}
 .waitlist-success.show{display:block;}
 .waitlist-finprint{color:var(--text-faint);font-size:0.8rem;margin-top:0.75rem;}
-
 footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
 .footer-inner{max-width:var(--content);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .footer-links{display:flex;gap:1.5rem;}
 .footer-links a{color:var(--text-faint);font-size:0.85rem;transition:color var(--tx);}
 .footer-links a:hover{color:var(--text-muted);}
 .footer-copy{color:var(--text-faint);font-size:0.8rem;}
-
-@media (max-width:768px){
+@media(max-width:768px){
   .steps-grid{grid-template-columns:1fr;}
   .steps-grid::before,.steps-grid::after{display:none;}
   .step{padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
@@ -156,7 +134,7 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
   .footer-links{justify-content:center;}
   .capsule-wrapper{transform:scale(0.82);}
 }
-@media (max-width:480px){
+@media(max-width:480px){
   nav{padding:0.75rem 1rem;}
   .hero-title{font-size:clamp(2.2rem,10vw,3.5rem);}
   .countdown-tiles{flex-wrap:wrap;gap:0.5rem;}
@@ -167,7 +145,7 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
 <body>
 
 <nav>
-  <div class="nav-logo"><span>📦</span><span>Boxed</span></div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>📦</span><span>Boxed</span></div>
   <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join waitlist</button>
 </nav>
 
@@ -282,7 +260,7 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
       </div>
       <div class="bento-card col-6 made-in-dublin">
         <div class="made-title">Made in Dublin 🇮🇪</div>
-        <p class="made-story">Boxed started as a personal project — a way to lock away a memory with someone I cared about and open it months later. What started as a silly idea turned into something real. Built with love, late nights, and too much coffee.</p>
+        <p class="made-story">Boxed started as a personal project — a way to lock away a memory with someone I cared about and open it months later. What started as a silly idea turned into something real. One developer. One idea. Built in Dublin.</p>
       </div>
     </div>
   </div>
@@ -294,13 +272,6 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
     <p class="section-label" style="text-align:center">Your memories are waiting</p>
     <h2 class="waitlist-title">Who are you sealing this with?</h2>
     <p class="waitlist-sub">Join the waitlist. Be first to know when Boxed drops on the App Store.</p>
-    <!-- 
-      FORMSPREE SETUP:
-      1. Go to https://formspree.io and sign up free
-      2. Create a new form, copy your form ID (looks like: xpwzgkla)
-      3. Replace YOUR_FORM_ID below with your actual ID
-      4. Formspree emails you every submission, free up to 50/month
-    -->
     <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/xnjolalo" method="POST" onsubmit="handleWaitlist(event)">
       <input type="email" name="email" class="waitlist-input" id="waitlist-email" placeholder="your@email.com" required>
       <button type="submit" class="btn-notify" id="notify-btn">Notify me →</button>
@@ -314,82 +285,22 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
   <div class="footer-inner">
     <div class="nav-logo">📦 Boxed</div>
     <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Contact</a>
-      <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Boxed. Made with ❤️ in Dublin.</p>
   </div>
 </footer>
 
 <script>
-// PARTICLES
 (function(){var c=document.getElementById("particles-canvas"),ctx=c.getContext("2d"),p=[];function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}function init(){p=[];for(var i=0;i<25;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2.5+0.8,speed:Math.random()*0.4+0.15,opacity:Math.random()*0.5+0.15,drift:(Math.random()-0.5)*0.3});}function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(pt){ctx.beginPath();ctx.arc(pt.x,pt.y,pt.r,0,Math.PI*2);ctx.fillStyle="rgba(201,168,76,"+pt.opacity+")";ctx.fill();pt.y-=pt.speed;pt.x+=pt.drift;if(pt.y<-10){pt.y=c.height+10;pt.x=Math.random()*c.width;}if(pt.x<-10)pt.x=c.width+10;if(pt.x>c.width+10)pt.x=-10;});requestAnimationFrame(draw);}window.addEventListener("resize",function(){resize();init();});resize();init();draw();})();
-
-// CAPSULE POP
 function popCapsule(el){el.textContent="🎉";el.style.animation="none";el.style.transform="scale(1.15)";setTimeout(function(){el.textContent="📦";el.style.transform="";el.style.animation="bob 3.5s ease-in-out infinite";},800);}
-
-// CHIPS — one at a time, cycling
-(function(){
-  var chips = Array.from(document.querySelectorAll(".chip"));
-  var current = -1;
-  var SHOW_DURATION = 2200; // ms visible
-  var FADE_DURATION = 500;  // matches CSS transition
-
-  function showNext(){
-    // hide current
-    if(current >= 0) chips[current].classList.remove("chip-visible");
-
-    // wait for fade out, then show next
-    setTimeout(function(){
-      current = (current + 1) % chips.length;
-      chips[current].classList.add("chip-visible");
-    }, FADE_DURATION);
-  }
-
-  // start after short delay
-  setTimeout(function(){
-    showNext();
-    setInterval(showNext, SHOW_DURATION + FADE_DURATION);
-  }, 800);
-})();
-
-// COUNTDOWN
+(function(){var chips=Array.from(document.querySelectorAll(".chip"));var current=-1;var SHOW_DURATION=2200;var FADE_DURATION=500;function showNext(){if(current>=0)chips[current].classList.remove("chip-visible");setTimeout(function(){current=(current+1)%chips.length;chips[current].classList.add("chip-visible");},FADE_DURATION);}setTimeout(function(){showNext();setInterval(showNext,SHOW_DURATION+FADE_DURATION);},800);})();
 (function(){var t=new Date();t.setDate(t.getDate()+30);function u(){var n=new Date(),d=Math.max(0,t-n);document.getElementById("cd-days").textContent=String(Math.floor(d/86400000)).padStart(2,"0");document.getElementById("cd-hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0");document.getElementById("cd-min").textContent=String(Math.floor((d%3600000)/60000)).padStart(2,"0");document.getElementById("cd-sec").textContent=String(Math.floor((d%60000)/1000)).padStart(2,"0");}u();setInterval(u,1000);})();
-
-// SCROLL REVEAL
 var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("visible");});},{threshold:0.08});document.querySelectorAll(".reveal").forEach(function(el){ro.observe(el);});
-
-// PROGRESS BAR
 var pd=false,po=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting&&!pd){pd=true;setTimeout(function(){document.getElementById("progress-fill").style.width="62%";var c=0,iv=setInterval(function(){c++;if(c>=62){clearInterval(iv);c=62;}document.getElementById("progress-pct").textContent=c+"%";},25);},300);po.unobserve(x.target);}});},{threshold:0.4});var pc=document.getElementById("progress-card");if(pc)po.observe(pc);
-
-// WAITLIST FORM
-function handleWaitlist(e){
-  var formId = document.getElementById("waitlist-form").action;
-  // If Formspree not yet set up, just show success locally
-  if(formId.indexOf("YOUR_FORM_ID") !== -1){
-    e.preventDefault();
-    showSuccess();
-    return;
-  }
-  // Otherwise let Formspree handle it via fetch
-  e.preventDefault();
-  var email = document.getElementById("waitlist-email").value;
-  fetch(formId, {
-    method:"POST",
-    headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({email:email})
-  }).then(function(r){
-    if(r.ok) showSuccess();
-    else alert("Something went wrong. Please try again.");
-  }).catch(function(){ alert("Network error. Please try again."); });
-}
-function showSuccess(){
-  var b=document.getElementById("notify-btn");
-  b.textContent="You're in! ✓";b.classList.add("success");b.disabled=true;
-  document.getElementById("waitlist-success").classList.add("show");
-  document.getElementById("waitlist-email").disabled=true;
-}
+function handleWaitlist(e){e.preventDefault();var formId=document.getElementById("waitlist-form").action;var email=document.getElementById("waitlist-email").value;fetch(formId,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({email:email})}).then(function(r){if(r.ok)showSuccess();else alert("Something went wrong. Please try again.");}).catch(function(){alert("Network error. Please try again.");});}
+function showSuccess(){var b=document.getElementById("notify-btn");b.textContent="You're in! ✓";b.classList.add("success");b.disabled=true;document.getElementById("waitlist-success").classList.add("show");document.getElementById("waitlist-email").disabled=true;}
 </script>
 </body>
 </html>
