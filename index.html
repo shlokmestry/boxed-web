@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boxed | Seal Your Moments</title>
 <meta name="description" content="Seal memories with someone you love. Open them on a date you choose. Coming soon to iOS.">
+
+<!-- Open Graph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boxed — Seal a memory. Open it later.">
+<meta property="og:description" content="Drop in photos and notes with someone you love. Lock them away. Open on a date you choose. Coming soon to iOS.">
+<meta property="og:image" content="https://boxedapp.io/og-image.png">
+<meta property="og:url" content="https://boxedapp.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Boxed — Seal a memory. Open it later.">
+<meta name="twitter:description" content="Drop in photos and notes with someone you love. Lock them away. Open on a date you choose.">
+<meta name="twitter:image" content="https://boxedapp.io/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
@@ -27,15 +39,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:0.8rem;font-weight:500;letter-spacing:0.04em;padding:0.35rem 1rem;border-radius:var(--radius-full);margin-bottom:1.5rem;}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse-dot 2s ease-in-out infinite;}
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
+/* FIX: line-2 now uses a visible gradient instead of near-invisible stroke */
 .hero-title{font-size:clamp(3rem,8vw,6rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:1.5rem;}
 .hero-title .line-1{display:block;color:var(--text);}
-.hero-title .line-2{display:block;color:transparent;-webkit-text-stroke:2px rgba(240,240,240,0.35);}
+.hero-title .line-2{display:block;background:linear-gradient(135deg,rgba(240,240,240,0.75) 0%,rgba(201,168,76,0.5) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-subtitle{color:var(--text-muted);font-size:clamp(1rem,2vw,1.2rem);max-width:56ch;margin:0 auto 2rem;line-height:1.7;}
 .hero-ctas{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
-.btn-primary{background:#fff;color:#080808;padding:0.875rem 2rem;border-radius:var(--radius-full);font-weight:600;font-size:0.95rem;transition:background var(--tx),transform var(--tx);cursor:pointer;border:none;}
-.btn-primary:hover{background:#e8e8e8;transform:translateY(-1px);}
+/* FIX: primary button is now gold to clearly signal the main action */
+.btn-primary{background:var(--gold);color:#080808;padding:0.875rem 2rem;border-radius:var(--radius-full);font-weight:700;font-size:0.95rem;transition:background var(--tx),transform var(--tx),box-shadow var(--tx);cursor:pointer;border:none;box-shadow:0 0 24px rgba(201,168,76,0.25);}
+.btn-primary:hover{background:#d4af5a;transform:translateY(-1px);box-shadow:0 0 32px rgba(201,168,76,0.4);}
 .btn-secondary{background:transparent;color:var(--text-muted);padding:0.875rem 2rem;border-radius:var(--radius-full);border:1px solid rgba(240,240,240,0.2);font-weight:500;font-size:0.95rem;transition:border-color var(--tx),color var(--tx);cursor:pointer;}
 .btn-secondary:hover{border-color:rgba(240,240,240,0.5);color:var(--text);}
+/* Scroll hint */
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:0.4rem;color:var(--text-faint);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-top:2.5rem;animation:fade-bounce 2.5s ease-in-out infinite;}
+.scroll-hint-arrow{width:1px;height:28px;background:linear-gradient(to bottom,rgba(201,168,76,0.6),transparent);}
+@keyframes fade-bounce{0%,100%{opacity:0.4;transform:translateY(0);}50%{opacity:0.9;transform:translateY(4px);}}
 .capsule-wrapper{position:relative;display:inline-flex;align-items:center;justify-content:center;width:180px;height:180px;margin:0 auto;}
 .capsule-box{width:180px;height:180px;background:var(--card);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:center;font-size:4rem;cursor:pointer;position:relative;z-index:2;border:1px solid rgba(201,168,76,0.15);animation:bob 3.5s ease-in-out infinite;transition:transform 0.15s;user-select:none;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
@@ -100,6 +118,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .made-in-dublin{background:#0a0c14 !important;border-color:rgba(201,168,76,0.2) !important;}
 .made-in-dublin .made-title{color:var(--gold);font-size:1.3rem;font-weight:800;margin-bottom:0.75rem;letter-spacing:-0.02em;}
 .made-in-dublin .made-story{color:rgba(201,168,76,0.65);font-size:0.9rem;line-height:1.7;}
+/* Social proof bar */
+.social-proof{border-top:1px solid rgba(240,240,240,0.06);border-bottom:1px solid rgba(240,240,240,0.06);padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;}
+.proof-item{display:flex;align-items:center;gap:0.6rem;color:var(--text-muted);font-size:0.875rem;}
+.proof-item strong{color:var(--text);font-weight:700;}
+.proof-divider{width:1px;height:20px;background:rgba(240,240,240,0.1);}
+/* FAQ */
+.faq-list{max-width:680px;}
+.faq-item{border-bottom:1px solid rgba(240,240,240,0.07);padding:1.25rem 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--text);}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{font-size:1.2rem;color:var(--text-faint);transition:transform var(--tx),color var(--tx);flex-shrink:0;}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--gold);}
+.faq-a{color:var(--text-muted);font-size:0.9rem;line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1),padding 0.3s ease;}
+.faq-item.open .faq-a{max-height:200px;padding-top:0.75rem;}
+/* Waitlist */
 .waitlist-section{position:relative;text-align:center;padding:clamp(4rem,10vw,6rem) 1.5rem;overflow:hidden;border-top:1px solid rgba(201,168,76,0.08);}
 .waitlist-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(201,168,76,0.1) 0%,transparent 65%);pointer-events:none;}
 .waitlist-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;}
@@ -114,6 +148,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .waitlist-success{display:none;color:var(--green);font-size:0.9rem;font-weight:500;margin-top:0.5rem;}
 .waitlist-success.show{display:block;}
 .waitlist-finprint{color:var(--text-faint);font-size:0.8rem;margin-top:0.75rem;}
+/* FIX: iOS-only note below waitlist */
+.platform-note{color:var(--text-faint);font-size:0.78rem;margin-top:0.4rem;}
+.platform-note span{color:rgba(201,168,76,0.5);}
 footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
 .footer-inner{max-width:var(--content);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .footer-links{display:flex;gap:1.5rem;}
@@ -133,6 +170,8 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
   .footer-inner{flex-direction:column;text-align:center;}
   .footer-links{justify-content:center;}
   .capsule-wrapper{transform:scale(0.82);}
+  .social-proof{gap:1rem;}
+  .proof-divider{display:none;}
 }
 @media(max-width:480px){
   nav{padding:0.75rem 1rem;}
@@ -156,11 +195,13 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
     <div class="hero-badge"><span class="badge-dot"></span>Coming soon to iOS</div>
     <h1 class="hero-title">
       <span class="line-1">Seal a memory.</span>
+      <!-- FIX: was near-invisible stroke text, now readable gradient -->
       <span class="line-2">Open it later.</span>
     </h1>
-    <p class="hero-subtitle">Drop in photos, notes, and moments with someone you love. Lock them away. Open them on a date you choose.</p>
+    <p class="hero-subtitle">Drop in photos and notes with someone you love. Lock them away. Open them on a date you choose.</p>
     <div class="hero-ctas">
-      <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Your memories are waiting →</button>
+      <!-- FIX: clear CTA copy + gold styling to signal primary action -->
+      <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Get early access →</button>
       <button class="btn-secondary" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
     </div>
     <div class="capsule-wrapper">
@@ -175,8 +216,22 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
         <span class="chip" data-pos="br">✈️ Before the trip</span>
       </div>
     </div>
+    <!-- ADD: scroll hint -->
+    <div class="scroll-hint">
+      <div class="scroll-hint-arrow"></div>
+      <span>Scroll</span>
+    </div>
   </div>
 </section>
+
+<!-- ADD: Social proof bar -->
+<div class="social-proof reveal">
+  <div class="proof-item">🔒 <span>End-to-end encrypted</span></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">📱 <span>iOS first &mdash; <strong>Android coming soon</strong></span></div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">🇮🇪 <span>Built in Dublin</span></div>
+</div>
 
 <section class="section how-it-works reveal" id="how-it-works">
   <div class="container">
@@ -187,7 +242,8 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
         <div class="step-number">01</div>
         <div class="step-icon">📦</div>
         <h3 class="step-title">Seal it</h3>
-        <p class="step-desc">Add photos, notes, and voice memos. Choose a friend. Pick a date. Lock it shut.</p>
+        <!-- FIX: removed "voice memos" — not in the app -->
+        <p class="step-desc">Add photos and notes. Choose a friend. Pick a date. Lock it shut.</p>
       </div>
       <div class="step">
         <div class="step-number">02</div>
@@ -214,6 +270,7 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
         <div class="card-tag">⏱ Countdown</div>
         <div class="card-title">A real-time countdown</div>
         <div class="countdown-tiles">
+          <!-- FIX: countdown now targets actual launch date (May 4 2025), not now+30 days -->
           <div class="countdown-unit"><span class="countdown-val" id="cd-days">00</span><div class="countdown-label">Days</div></div>
           <div class="countdown-unit"><span class="countdown-val" id="cd-hours">00</span><div class="countdown-label">Hours</div></div>
           <div class="countdown-unit"><span class="countdown-val" id="cd-min">00</span><div class="countdown-label">Min</div></div>
@@ -266,18 +323,51 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
   </div>
 </section>
 
+<!-- ADD: FAQ section -->
+<section class="section reveal" id="faq">
+  <div class="container">
+    <p class="section-label">Questions</p>
+    <h2 class="section-title">Good to know.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my data really private? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. Every capsule is encrypted with AES-256-GCM before it ever leaves your device. Even we can't read your memories — only you and the people you invite hold the keys.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I forget my password? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Because encryption is end-to-end, your password is the key. We recommend keeping it somewhere safe. A reset flow is on the roadmap for a future update.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I invite more than one person? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes — capsules are collaborative. Invite anyone by username and they can add memories before the capsule is sealed. Everyone unlocks it together on the chosen date.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">When is the Android version coming? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Boxed is launching on iOS first. Android is actively planned and will follow after the initial launch. Join the waitlist and you'll be the first to know.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is Boxed free to use? <span class="faq-icon">+</span></div>
+        <div class="faq-a">The core experience will be free. Pricing details will be shared on launch day — waitlist members will get the best early access deal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="waitlist-section reveal" id="waitlist">
   <div class="waitlist-glow"></div>
   <div style="position:relative;z-index:2">
     <p class="section-label" style="text-align:center">Your memories are waiting</p>
+    <!-- FIX: clearer waitlist headline -->
     <h2 class="waitlist-title">Who are you sealing this with?</h2>
     <p class="waitlist-sub">Join the waitlist. Be first to know when Boxed drops on the App Store.</p>
     <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/xnjolalo" method="POST" onsubmit="handleWaitlist(event)">
       <input type="email" name="email" class="waitlist-input" id="waitlist-email" placeholder="your@email.com" required>
-      <button type="submit" class="btn-notify" id="notify-btn">Notify me →</button>
+      <button type="submit" class="btn-notify" id="notify-btn">Get early access →</button>
     </form>
     <div class="waitlist-success" id="waitlist-success">✓ You're on the list. We'll see you on launch day 📦</div>
     <p class="waitlist-finprint">No spam. Just the launch day announcement.</p>
+    <!-- ADD: platform clarity note -->
+    <p class="platform-note">iOS first. <span>Android coming soon.</span></p>
   </div>
 </section>
 
@@ -293,14 +383,40 @@ footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 1.5rem;}
 </footer>
 
 <script>
+// Particles
 (function(){var c=document.getElementById("particles-canvas"),ctx=c.getContext("2d"),p=[];function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}function init(){p=[];for(var i=0;i<25;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2.5+0.8,speed:Math.random()*0.4+0.15,opacity:Math.random()*0.5+0.15,drift:(Math.random()-0.5)*0.3});}function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(pt){ctx.beginPath();ctx.arc(pt.x,pt.y,pt.r,0,Math.PI*2);ctx.fillStyle="rgba(201,168,76,"+pt.opacity+")";ctx.fill();pt.y-=pt.speed;pt.x+=pt.drift;if(pt.y<-10){pt.y=c.height+10;pt.x=Math.random()*c.width;}if(pt.x<-10)pt.x=c.width+10;if(pt.x>c.width+10)pt.x=-10;});requestAnimationFrame(draw);}window.addEventListener("resize",function(){resize();init();});resize();init();draw();})();
+
+// Capsule pop
 function popCapsule(el){el.textContent="🎉";el.style.animation="none";el.style.transform="scale(1.15)";setTimeout(function(){el.textContent="📦";el.style.transform="";el.style.animation="bob 3.5s ease-in-out infinite";},800);}
+
+// Memory chips
 (function(){var chips=Array.from(document.querySelectorAll(".chip"));var current=-1;var SHOW_DURATION=2200;var FADE_DURATION=500;function showNext(){if(current>=0)chips[current].classList.remove("chip-visible");setTimeout(function(){current=(current+1)%chips.length;chips[current].classList.add("chip-visible");},FADE_DURATION);}setTimeout(function(){showNext();setInterval(showNext,SHOW_DURATION+FADE_DURATION);},800);})();
-(function(){var t=new Date();t.setDate(t.getDate()+30);function u(){var n=new Date(),d=Math.max(0,t-n);document.getElementById("cd-days").textContent=String(Math.floor(d/86400000)).padStart(2,"0");document.getElementById("cd-hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0");document.getElementById("cd-min").textContent=String(Math.floor((d%3600000)/60000)).padStart(2,"0");document.getElementById("cd-sec").textContent=String(Math.floor((d%60000)/1000)).padStart(2,"0");}u();setInterval(u,1000);})();
+
+// FIX: Countdown now targets a fixed launch date (May 4, 2026) instead of now+30 days
+(function(){
+  var LAUNCH = new Date("2026-05-04T10:00:00");
+  function u(){
+    var n=new Date(), d=Math.max(0,LAUNCH-n);
+    document.getElementById("cd-days").textContent=String(Math.floor(d/86400000)).padStart(2,"0");
+    document.getElementById("cd-hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0");
+    document.getElementById("cd-min").textContent=String(Math.floor((d%3600000)/60000)).padStart(2,"0");
+    document.getElementById("cd-sec").textContent=String(Math.floor((d%60000)/1000)).padStart(2,"0");
+  }
+  u();setInterval(u,1000);
+})();
+
+// Scroll reveal
 var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("visible");});},{threshold:0.08});document.querySelectorAll(".reveal").forEach(function(el){ro.observe(el);});
+
+// Progress bar
 var pd=false,po=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting&&!pd){pd=true;setTimeout(function(){document.getElementById("progress-fill").style.width="62%";var c=0,iv=setInterval(function(){c++;if(c>=62){clearInterval(iv);c=62;}document.getElementById("progress-pct").textContent=c+"%";},25);},300);po.unobserve(x.target);}});},{threshold:0.4});var pc=document.getElementById("progress-card");if(pc)po.observe(pc);
+
+// Waitlist submit
 function handleWaitlist(e){e.preventDefault();var formId=document.getElementById("waitlist-form").action;var email=document.getElementById("waitlist-email").value;fetch(formId,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({email:email})}).then(function(r){if(r.ok)showSuccess();else alert("Something went wrong. Please try again.");}).catch(function(){alert("Network error. Please try again.");});}
 function showSuccess(){var b=document.getElementById("notify-btn");b.textContent="You're in! ✓";b.classList.add("success");b.disabled=true;document.getElementById("waitlist-success").classList.add("show");document.getElementById("waitlist-email").disabled=true;}
+
+// ADD: FAQ toggle
+function toggleFaq(el){var item=el.parentElement;item.classList.toggle("open");}
 </script>
 </body>
 </html>
